@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { viewBookDetails } from '../../api/mergedData';
 
+// shows individual book with author details
+
 export default function ViewBook() {
   const [bookDetails, setBookDetails] = useState({});
   const router = useRouter();

@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteBook } from '../api/bookData';
 
+// this pages shows all of the books with the picture/title/price and view/edit/delete buttons
+
 function BookCard({ bookObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
