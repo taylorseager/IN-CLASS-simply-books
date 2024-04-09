@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
-import { getAuthors } from '../../api/authorData';
-import AuthorCard from '../../components/AuthorCard';
-import { useAuth } from '../../utils/context/authContext';
+import { getAuthors } from '../api/authorData';
+import AuthorCard from '../components/AuthorCard';
+import { useAuth } from '../utils/context/authContext';
 
 function AuthorsPage() {
   const [authors, setAuthors] = useState([]);
