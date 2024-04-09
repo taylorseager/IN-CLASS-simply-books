@@ -7,11 +7,12 @@ import { useAuth } from '../utils/context/authContext';
 import BookCard from '../components/BookCard';
 
 function Home() {
-  // TODO: Set a state for books
+  // Set a state for books; setBooks is a function
   const [books, setBooks] = useState([]);
 
-  // TODO: Get user ID using useAuth Hook
+  // Get user ID using useAuth Hook
   const { user } = useAuth();
+  // { user } = destructuring
 
   // TODO: create a function that makes the API call to get all the books
   const getAllTheBooks = () => {
