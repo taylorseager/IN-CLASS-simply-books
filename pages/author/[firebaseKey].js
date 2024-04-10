@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { viewAuthorDetails, viewBookDetails } from '../../api/mergedData';
 import BookCard from '../../components/BookCard';
-// import { getAuthorBooks, getSingleAuthor } from '../../api/authorData';
-// import BookCard from '../../components/BookCard';
-// import ViewBook from '../book/[firebaseKey]';
 
 // shows individual author with books
 
@@ -16,10 +13,7 @@ export default function ViewAuthor() {
   console.warn(bookDetails);
   const { firebaseKey } = router.query;
 
-  // const getSingleAuthorBooks = () => {
-  //   getSingleAuthor().then(getAuthorBooks);
-  // };
-
+  // useEffect is for the second render
   useEffect(() => {
     viewAuthorDetails(firebaseKey).then(setAuthorDetails);
     viewBookDetails(firebaseKey).then(setBookDetails);
