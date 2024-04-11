@@ -3,11 +3,19 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { deleteSingleAuthor } from '../api/authorData';
+import { deleteSingleAuthor, updateAuthor } from '../api/authorData';
 
 // shows all authors
 
 function AuthorCard({ authorObj, onUpdate }) {
+  const toggleFavorite = () => {
+    if (authorObj.favorite) {
+      updateAuthor({ ...authorObj, favorite: false }).then(onUpdate);
+    } else {
+      updateAuthor({ ...authorObj, favorite: true }).then(onUpdate);
+    }
+  };
+
   const deleteThisAuthor = () => {
     if (window.confirm(`Are you absolutely positive you want to delete ${authorObj.first_name} ${authorObj.last_name}?!?!`)) {
       deleteSingleAuthor(authorObj.firebaseKey).then(() => onUpdate());
@@ -18,8 +26,7 @@ function AuthorCard({ authorObj, onUpdate }) {
       <Card style={{ width: '18rem', margin: '10px' }}>
         <Card.Img variant="top" src={authorObj.image} alt={authorObj.first_name} style={{ height: '300px' }} />
         <Card.Body>
-          <Card.Title>{authorObj.first_name}</Card.Title>
-          <Card.Title>{authorObj.last_name}</Card.Title>
+          <Card.Title> {authorObj.first_name} {authorObj.last_name} <Button variant="dark" onClick={toggleFavorite}><span>{authorObj.favorite ? '💚' : '🤍'}</span></Button></Card.Title>
           <Link href={`/author/${authorObj.firebaseKey}`} passHref>
             <Button variant="primary" className="m-2">VIEW</Button>
           </Link>
