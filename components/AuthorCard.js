@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { deleteSingleAuthor, updateAuthor } from '../api/authorData';
+import { updateAuthor } from '../api/authorData';
+import { deleteAuthorBooks } from '../api/mergedData';
 
 // shows all authors
 
@@ -17,8 +18,8 @@ function AuthorCard({ authorObj, onUpdate }) {
   };
 
   const deleteThisAuthor = () => {
-    if (window.confirm(`Are you absolutely positive you want to delete ${authorObj.first_name} ${authorObj.last_name}?!?!`)) {
-      deleteSingleAuthor(authorObj.firebaseKey).then(() => onUpdate());
+    if (window.confirm(`Are you absolutely positive you want to delete ${authorObj.first_name} ${authorObj.last_name}?!?! This cannot be undone!! Tread lightly`)) {
+      deleteAuthorBooks(authorObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (
