@@ -87,7 +87,7 @@ function AuthorForm({ authorObj }) {
       </FloatingLabel>
 
       {/* IMAGE INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Book Image" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Author Image" className="mb-3">
         <Form.Control
           type="url"
           placeholder="Enter an image url"
