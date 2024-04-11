@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
@@ -15,15 +14,16 @@ function AuthorsPage() {
 
   useEffect(() => {
     getAllTheAuthors();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="text-center my-4">
-      <Link href="/author" passHref>
-        <Button>Add An Author</Button>
+      <Link passHref href="/author/newAuthor">
+        <Button>Add Author</Button>
       </Link>
       <div className="d-flex flex-wrap">
-        {/* TODO: map over authors here using AuthorCard component */}
+        {/* map over authors here using AuthorCard component */}
         {authors.map((author) => (
           <AuthorCard key={author.firebaseKey} authorObj={author} onUpdate={getAllTheAuthors} />
         ))}

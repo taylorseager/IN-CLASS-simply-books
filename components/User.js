@@ -13,9 +13,10 @@ export default function UserProfile() {
     <>
       <Card style={{ width: '18rem' }}>
         <Card.Body>
+          <Card.Img variant="top" src={user.photoURL} alt="profile image" style={{ height: '300px' }} />
           <Card.Title>{user.displayName}</Card.Title>
-          <h6>{user.email}</h6>
-          <h6>{user.metadata.lastSignInTime}</h6>
+          <h6 className="card-text bold">Email: {user.email}</h6>
+          <h6 className="card-text bold">Last Sign In: {user.metadata.lastSignInTime}</h6>
         </Card.Body>
       </Card>
       <Button type="button" size="lg" className="copy-btn" onClick={signOut}>
